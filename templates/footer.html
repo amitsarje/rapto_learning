@@ -1,0 +1,67 @@
+{% load crispy_forms_tags %}
+
+<!-- Footer -->
+<footer id="contactus" class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <div class="container" style="color: white;text-align:center" > 
+         <h5 class="text-uppercase" >Find us</h5>
+         <hr style="background-color: white; width:50%;">
+        <p ><a href="https://www.youtube.com/channel/UCmkU-qYoP19uM3ueLyhxEMg"><i class="social fa fa-youtube-play" aria-hidden="true"></i></a>
+        <a href="https://instagram.com/raptolearning?igshid=1wyoklt7hwfrg"><i class="social fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://t.me/raptolearning"><i class="social fa fa-telegram" aria-hidden="true"></i> </a>
+        </p>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <hr>
+      <div class="col-md-3 mt-md-0 mt-3" style="color: white;">
+        <h5 style="text-align: center;">About Us</h5>
+        <hr style="background-color: white; width:50%;">
+
+          <ul style="text-align: left;padding-left:100px">
+            <li>Rapto aims to provide free educational courses/content</li>
+            <li>Best/free courses from Udemy</li>
+            <li>Regular Updates</li>
+            <li>Hurry up , enroll now !</li>
+          </ul>
+        </div>
+
+      <!-- Grid column -->
+      <div class="contactform col-md-6 mt-md-0 mt-3" >
+        <h4 style="color: white;">Contact Us</h4>
+        <form id="contactform" action="{% url 'homepage' %}" method="POST">
+          {% csrf_token%}
+          {{ContactForm|crispy}}
+        </form>
+        <button class="btn viewall"  type="submit" form="contactform">Submit</button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="color: white;">© 2020 Copyright | Rapto
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+

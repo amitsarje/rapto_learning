@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title%}
+Page Not Found
+{% endblock title%}
+
+{% block content%}
+{% include 'navbar.html'%}
+
+<div class="container" style="position: relative;top:100px;text-align:Center">
+
+        <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;font-size:xx-large"></i>
+
+        <h4>Page not found</h4>
+        <p>Following maybe the cases</p>
+        <ul class="list-group">
+            <li class="list-group-item">Course link you are looking is expired</li>
+            <li class="list-group-item">Bad request</li>
+            <li class="list-group-item">Browse another <a href="{% url 'course_list'%}"> courses</a> </li>
+          
+          </ul>
+
+</div>
+
+<div style="position: relative;top:300px">
+{% include 'footer.html'%}
+</div>
+{% endblock %}

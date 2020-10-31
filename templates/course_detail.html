@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title%}
+{{course.Title}}
+{% endblock title%}
+
+{% block content%}
+{% include 'navbar.html'%}
+
+{% if messages %}
+
+<div class="alert alert-success" style="text-align: center;">
+    {% for message in messages %}
+    {{message}}
+    {%endfor%}
+</div>
+{% endif%}
+
+
+<!-- course desc with image -->
+
+<div class="container header">
+
+    <div class="row">
+        <div class="col-lg-5">
+            <img class="img-fluid" src="{{course.Image}}" alt="course image">
+        </div>
+        <div class="col-lg-7" style="margin:auto auto">
+            <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; color:black">{{course.Title}}</h1>
+            <p style="font-size: 18px; color:black">{{course.Subtitle}}
+            <p>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container ad">
+    <h1>add</h1>
+</div> -->
+
+
+
+
+<!-- Description starts  -->
+<div class="container content" style="margin-top:100px">
+    <h3 class="CourseTitles">Description</h3>
+    <hr>
+    <ul class="list-group" style="text-align: left;">
+        {% for desc in Description1 %}
+        <li class="list-group-item"><i style="font-size: 10px;" class="fa fa-circle" aria-hidden="true"></i>
+            &nbsp;{{desc}}.</li>
+        {% endfor %}
+    </ul>
+    {% if Description2%}
+    <div class="collapse" id="collapseExample">
+
+        <ul class="list-group" style="text-align: left;">
+            {% for desc in Description2 %}
+            <li class="list-group-item"
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                <i style="font-size: 10px;" class="fa fa-circle" aria-hidden="true"></i> &nbsp;{{desc}}.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <p>
+        <a id="a" onclick="main()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            Read more
+        </a>
+    </p>
+    <script>
+        function main() {
+            if (document.getElementById('a').getAttribute('aria-expanded') == 'false') {
+                document.getElementById('a').innerHTML = 'Read less';
+            }
+            else {
+                document.getElementById('a').innerHTML = 'Read more';
+            }
+        }
+    </script>
+    {% endif %}
+
+
+</div>
+
+<!-- <div class='container ad'>
+    <h1>add</h1>
+</div> -->
+
+<!-- objectives starts -->
+
+<div class="container content" style="margin-bottom: 50px;">
+    <h3 class="CourseTitles">Objectives</h3>
+    <hr>
+    <ul class="list-group" style="text-align: left;">
+        {% for objective in Objectives %}
+        <li class="list-group-item"><i class="fa fa-bolt" aria-hidden="true"></i>&nbsp;{{objective}}.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+<!-- Requirements  starts-->
+<div style="margin-bottom:50px" class="container content">
+    <h3 class="CourseTitles">Requirements</h3>
+    <hr>
+    <ul class="list-group" style="text-align: left;">
+        {% for req in Requirements%}
+        <li class="list-group-item">{{req}}</li>
+        {% endfor%}
+    </ul>
+</div>
+
+
+<!-- Enrollment and telegram channel -->
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem; margin: 0 auto; ">
+                <a href="https://t.me/raptolearning" style="text-decoration: none;">
+                    <div class="card-body">
+                        <h6 class="card-title">Join us at Telegram</h6>
+                        <hr>
+                    </div>
+                    <h4 style="padding-bottom:20px"><i style="font-size: xx-large;" class="fa fa-telegram"
+                            aria-hidden="true"></i>&nbsp;raptolearning</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6" style="margin-top:50px">
+            <a href="{{course.Udemy_Link}}"><button type="button" class="btn btn-success"
+                    style="font-size:large;">Enroll for this course</button> </a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% include 'footer.html' %}
+
+{% endblock%}

@@ -1,0 +1,131 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block title%}
+Rapto
+{% endblock title%}
+{% block content %}
+
+{% if messages %}
+{% include 'acc_msg_modal.html'%}
+{% for message in messages %}
+{% if 'message_recieved' in message.tags%}
+<script>
+  $(document).ready(function(){
+   $('.modal').modal('show');
+   console.log('this is working');
+  });
+ </script>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% include 'navbar.html'%}
+
+
+<div class="container-fluid maindiv">
+
+  <div class="container header">
+
+    <h1
+      style="font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+      Free Courses on demand </h1>
+    <p>Get free courses about latest technology <br>selected from udemy</p>
+    <a href="https://t.me/raptolearning"><button type="button" class="btn btn-outline-secondary"> Join Now</button></a> 
+
+  </div>
+</div>
+
+
+<div id="courses" class="container-fluid  courses">
+  <h2 class='Titles'>Courses</h2>
+  <hr class="Titlehr">
+  <div class="owl-carousel owl-theme" id="owl-example">
+    {% for course in Courses %}
+    <a href="{% url 'view_course_details' course.id %}">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{course.Image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{course.Title|truncatechars:50}}</h5>
+          <p class="card-text">{{course.Subtitle|truncatechars:50}}</p>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="container" style="text-align: center;">
+    <a href="{% url 'course_list' %}"><button class="btn general"> View All</button></a>
+  </div>
+
+</div>
+<div class="stats">
+  <h2 class='Titles'>Statistics</h2>
+  <hr class="Titlehr">
+  <div class="countercontainer">
+    <div class="container">
+    <div class="row counters">
+      <div class="col-md-6">
+        <i class=" felements fa fa-space-shuttle" aria-hidden="true"></i><br>
+        <span class="counter">600</span> <span class="plussign">+</span> <br>
+        <h4>Courses</h4>
+      </div>
+      <div class="col-md-6">
+        <i class="felements fa fa-users" aria-hidden="true"></i> <br> 
+        <span class="counter">1400</span> <span class="plussign">+</span> <br>
+        <h4>Students</h4>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="container-fluid ytvideo">
+  <h2 class='Titles'>Our YouTube Channel</h2>
+  <hr class="Titlehr">
+  <div class="container">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vZLH0k3jWUI" allowullscreen></iframe>
+    </div>
+    <div class="container subscribebutton">
+      <button class="btn subs" >Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  $(document).ready(function () {
+
+
+    $('.owl-carousel').owlCarousel({
+      stagePadding: 50,
+      loop: true,
+      margin: 10,
+      nav: false,
+      responsive: {
+        0: {
+          items: 1,
+
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 3,
+        }
+      }
+    });
+
+    $('.counter').counterUp();
+
+
+
+
+  }
+  )
+</script>
+
+{% include 'footer.html'%}
+
+{% endblock %}
