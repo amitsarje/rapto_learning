@@ -15,7 +15,7 @@ class Courses(models.Model):
   
 
     def __str__(self):
-        return str(self.Title)
+        return str(self.Title) +  ' - '  + str(self.No_Of_Days)
     
     class Meta:
         ordering = ['-id']

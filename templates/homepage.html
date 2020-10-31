@@ -42,10 +42,10 @@ Rapto
   <div class="owl-carousel owl-theme" id="owl-example">
     {% for course in Courses %}
     <a href="{% url 'view_course_details' course.id %}">
-      <div class="card" style="width: 18rem;">
+      <div class="card coursecard">
         <img class="card-img-top" src="{{course.Image}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{course.Title|truncatechars:50}}</h5>
+          <h5 class="card-title" style="height: 60px;">{{course.Title|truncatechars:50}}</h5>
           <p class="card-text">{{course.Subtitle|truncatechars:50}}</p>
         </div>
       </div>
@@ -87,7 +87,8 @@ Rapto
       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vZLH0k3jWUI" allowullscreen></iframe>
     </div>
     <div class="container subscribebutton">
-      <button class="btn subs" >Subscribe</button>
+      <a href="https://www.youtube.com/channel/UCmkU-qYoP19uM3ueLyhxEMg"><button class="btn subs" >Subscribe</button></a>
+      
     </div>
   </div>
 </div>
@@ -109,7 +110,8 @@ Rapto
 
         },
         600: {
-          items: 3
+          items: 3 ,
+          stagePadding:20,
         },
         1000: {
           items: 3,

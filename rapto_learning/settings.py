@@ -138,7 +138,7 @@ STATIC_ROOT = os.path.join(BASE_DIR , 'static_cdn')
 
 
 
-# scheduling tasks 
+# scheduling tasks
 CELERY_BROKER_URL = 'redis://localhost:6379' 
 CELERY_TIMEZONE = 'Asia/Kolkata'
 CELERY_TASK_ALWAYS_EAGER = True
@@ -149,7 +149,7 @@ CELERY_BEAT_SCHEDULE = {
     # Executes every Friday at 4pm
     'send-notification-on-friday-afternoon': { 
          'task': 'rapto.tasks.delete_expired_courses', 
-         'schedule': crontab(hour=19, minute=31),
+         'schedule': crontab(hour=18, minute=43),
         },          
 }
 
